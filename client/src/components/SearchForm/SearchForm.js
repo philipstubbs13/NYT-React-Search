@@ -5,8 +5,7 @@ import React from "react";
 import "./SearchForm.css";
 
 // Import UI components from reactstrap framework.
-import { Card, Button, CardHeader, CardBody,
-    CardTitle, CardText, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Card, Button, CardHeader, CardBody, Form, FormGroup, Label, Input, } from 'reactstrap';
 
 // Search form component.
 const SearchForm = (props) => {
@@ -14,26 +13,50 @@ const SearchForm = (props) => {
     <div>
       <Card className="search-form main-content-section" id="search-form">
         <CardHeader>
-            <h2 class="card-header">Search Articles</h2>
+            <h2 className="card-header">Search Articles</h2>
         </CardHeader>
         <CardBody>
             <Form>
                 <FormGroup>
                     <Label for="topic">Topic</Label>
-                    <Input type="text" name="topic" id="articleTopic" placeholder="" />
+                    <Input
+                        value={props.query}
+                        onChange={props.handleTopicChange}
+                        type="text" 
+                        name="topic" 
+                        id="articleTopic" 
+                        placeholder="" />
                 </FormGroup>
 
                 <FormGroup>
                     <Label for="startYear">Start year</Label>
-                    <Input type="text" name="startYear" id="startYear" placeholder="" />
+                    <Input 
+                        value={props.begin}
+                        onChange={props.handleStartYearChange}
+                        type="text" 
+                        name="startYear" 
+                        id="startYear" 
+                        placeholder="" />
                 </FormGroup>
 
                 <FormGroup>
                     <Label for="endYear">End year</Label>
-                    <Input type="text" name="endYear" id="endYear" placeholder="" />
+                    <Input 
+                        value={props.end}
+                        onChange={props.handleEndYearChange}
+                        type="text" 
+                        name="endYear" 
+                        id="endYear" 
+                        placeholder="" />
                 </FormGroup>
 
-                <Button>Search</Button>
+                <Button
+                    type="submit"
+                    onClick={props.handleFormSubmit}
+                    className="btn btn-success"
+                >
+                    Search
+                </Button>
             </Form>
 
         </CardBody>

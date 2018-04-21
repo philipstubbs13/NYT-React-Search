@@ -11,7 +11,7 @@ import { Card, CardHeader, CardBody } from 'reactstrap';
 const ResultsList = props => (
     <Card className="search-results main-content-section" id="results">
         <CardHeader>
-            <h2 class="card-header">Search Results</h2>
+            <h2 className="card-header">Search Results</h2>
         </CardHeader>
         <CardBody>
             {/* <ul className="list-group search-results">

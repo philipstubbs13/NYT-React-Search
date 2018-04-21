@@ -15,7 +15,7 @@ const Footer = (props) => {
                 <Card style={{ marginTop: 80 }}>
                     <CardBody>
                         <CardTitle>
-                            <h2>New York Times React Search</h2>
+                            New York Times React Search
                         </CardTitle>
                         <CardText><b>Copyright 2018</b></CardText>
                         <Button>GitHub Repo</Button>

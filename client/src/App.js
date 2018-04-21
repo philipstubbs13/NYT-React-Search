@@ -1,7 +1,5 @@
 // Import React since we are using React.
 import React, { Component } from 'react';
-// Import app logo.
-import logo from './logo.svg';
 // Import app css file.
 import './App.css';
 // Import home page.

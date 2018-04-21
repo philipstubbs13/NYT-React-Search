@@ -1,5 +1,5 @@
 // Import React
-import React, { Component } from 'react';
+import React from 'react';
 
 // Import the Jumbotron UI component from the reactstrap framework.
 import { Jumbotron } from 'reactstrap';
