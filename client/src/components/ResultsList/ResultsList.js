@@ -9,18 +9,12 @@ import { Card, CardHeader, CardBody } from 'reactstrap';
 
 // Search results list component.
 const ResultsList = props => (
-    <Card className="search-results main-content-section" id="results">
+    <Card className="search-results" id="results" style={{marginTop: 50}}>
         <CardHeader>
             <h2 className="card-header">Search Results</h2>
         </CardHeader>
         <CardBody>
-            {/* <ul className="list-group search-results">
-                {props.results.map(result => (
-                    <li key={result} className="list-group-item">
-                        <p />
-                    </li>
-                ))}
-            </ul> */}
+            <ul className="list-group">{props.children}</ul>
         </CardBody>
     </Card>
 );

@@ -12,6 +12,8 @@ import Jumbotron from '../../components/Jumbotron';
 import SearchForm from '../../components/SearchForm'
 // Import ResultsList component.
 import ResultsList from '../../components/ResultsList'
+import ResultsListItem from '../../components/ResultsListItem'
+
 // Import Footer component.
 import Footer from '../../components/Footer';
 import API from "../../utils/API";
@@ -49,34 +51,49 @@ class Home extends Component {
         console.log("this.state.begin: ", this.state.begin);
         console.log("this.state.end: ", this.state.end);
         API.getArticles(this.state.query, this.state.begin, this.state.end)
-            .then(res => {
-                if (res.data.status === "error") {
-                    throw new Error(res.data.message);
-                }
-                this.setState({ articles: res.data.response.docs, error: "" });
-            })
-            .catch(err => this.setState({ error: err.message }));
+            .then((res) => {
+                this.setState({ articles: res.data.response.docs });
+                console.log("this.state.articles: ", this.state.articles);
+            });
+
     };
 
     render() {
         return (
             <div>
                 <Jumbotron />
-                <Container style={{ marginTop: 30 }}>
-                    <Row>
-                        <Col size="md-6">
-                            <SearchForm 
-                                handleFormSubmit={this.handleFormSubmit}
-                                handleTopicChange={this.handleTopicChange}
-                                handleStartYearChange={this.handleStartYearChange}
-                                handleEndYearChange={this.handleEndYearChange}/>
-                        </Col>
+                <div className="main-content-section">
+                    <Container style={{ marginTop: 30 }}>
+                        <Row>
+                            <Col size="md-12">
+                                <SearchForm 
+                                    handleFormSubmit={this.handleFormSubmit}
+                                    handleTopicChange={this.handleTopicChange}
+                                    handleStartYearChange={this.handleStartYearChange}
+                                    handleEndYearChange={this.handleEndYearChange}/>
+                            </Col>
+                        </Row>
 
-                        <Col size="md-6">
-                            <ResultsList />
-                        </Col>
-                    </Row>
-                </Container>
+                        <Row>
+                            <Col size="md-12">
+                                <ResultsList>
+                                    {this.state.articles.map(article => {
+                                        return (
+                                            <ResultsListItem
+                                                _id={article._id}
+                                                key={article._id}
+                                                title={article.headline.main}
+                                                date={article.pub_date}
+                                                url={article.web_url}
+                                                snippet={article.snippet}
+                                            />
+                                        );
+                                    })}
+                                </ResultsList>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
                 <Footer />
             </div>
         );

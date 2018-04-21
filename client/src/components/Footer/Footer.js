@@ -7,19 +7,26 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 // Import the Container component. 
 import Container from "../../components/Container";
 
+// Import css
+import './Footer.css';
+
 // Footer component
 const Footer = (props) => {
     return (
-        <div>
-            <Container>
-                <Card style={{ marginTop: 80 }}>
+        <div className="footer">
+            <Container >
+                <Card>
                     <CardBody>
-                        <CardTitle>
+                        <CardTitle className="footer-heading">
                             New York Times React Search
                         </CardTitle>
                         <CardText><b>Copyright 2018</b></CardText>
-                        <Button>GitHub Repo</Button>
-                        <Button style={{ marginLeft: 10 }}>LinkedIn</Button>
+                        <a href="https://github.com/philipstubbs13/NYT-React-Search" target="_blank" rel="noopener noreferrer" >
+                            <Button>GitHub Repo</Button>
+                        </a>
+                        <a href="https://www.linkedin.com/in/philipjstubbs/" target="_blank" rel="noopener noreferrer" >
+                            <Button style={{ marginLeft: 10 }}>LinkedIn</Button>
+                        </a>
                     </CardBody>
                 </Card>
             </Container>

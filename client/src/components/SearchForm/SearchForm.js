@@ -11,7 +11,7 @@ import { Card, Button, CardHeader, CardBody, Form, FormGroup, Label, Input, } fr
 const SearchForm = (props) => {
   return (
     <div>
-      <Card className="search-form main-content-section" id="search-form">
+      <Card className="search-form" id="search-form">
         <CardHeader>
             <h2 className="card-header">Search Articles</h2>
         </CardHeader>
@@ -53,7 +53,7 @@ const SearchForm = (props) => {
                 <Button
                     type="submit"
                     onClick={props.handleFormSubmit}
-                    className="btn btn-success"
+                    className="btn search-btn"
                 >
                     Search
                 </Button>
