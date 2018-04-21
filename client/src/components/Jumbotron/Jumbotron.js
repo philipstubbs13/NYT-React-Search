@@ -1,16 +1,24 @@
+// Import React
 import React, { Component } from 'react';
+
+// Import the Jumbotron UI component from the reactstrap framework.
 import { Jumbotron } from 'reactstrap';
 
+// Import Jumbotron style sheet.
+import './Jumbotron.css';
+
+// Jumbotron component
 const NYTJumbotron = (props) => {
     return (
         <div>
-            <Jumbotron className="text-center">
+            <Jumbotron className="text-center jumbotron">
                 <h1 className="display-3">New York Times React Search</h1>
                 <p className="lead">Search, read, and annotate New York Times articles for free!</p>
-                <hr className="my-2" />
             </Jumbotron>
         </div>
     );
 };
 
+// Export Jumbotron component.
 export default NYTJumbotron;
+
