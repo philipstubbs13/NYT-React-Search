@@ -10,7 +10,7 @@ import './Jumbotron.css';
 // Jumbotron component
 const NYTJumbotron = (props) => {
     return (
-        <div>
+        <div className="header">
             <Jumbotron className="text-center jumbotron">
                 <h1 className="display-3">New York Times React Search</h1>
                 <p className="lead">Search, read, and annotate New York Times articles for free!</p>

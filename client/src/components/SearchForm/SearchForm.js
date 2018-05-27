@@ -13,12 +13,12 @@ const SearchForm = (props) => {
     <div>
       <Card className="search-form" id="search-form">
         <CardHeader>
-            <h2 className="card-header">Search Articles</h2>
+            <h2 className="card-header">Search articles</h2>
         </CardHeader>
         <CardBody>
             <Form>
                 <FormGroup>
-                    <Label for="topic">Topic</Label>
+                    <Label for="topic" className="form-label">Topic (for example, sports)</Label>
                     <Input
                         value={props.query}
                         onChange={props.handleTopicChange}
@@ -29,31 +29,32 @@ const SearchForm = (props) => {
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="startYear">Start year</Label>
+                    <Label for="startYear" className="form-label">Start year (YYYY)</Label>
                     <Input 
                         value={props.begin}
                         onChange={props.handleStartYearChange}
                         type="text" 
                         name="startYear" 
                         id="startYear" 
-                        placeholder="" />
+                        placeholder="YYYY" />
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="endYear">End year</Label>
+                    <Label for="endYear" className="form-label">End year (YYYY)</Label>
                     <Input 
                         value={props.end}
                         onChange={props.handleEndYearChange}
                         type="text" 
                         name="endYear" 
                         id="endYear" 
-                        placeholder="" />
+                        placeholder="YYYY" />
                 </FormGroup>
 
                 <Button
                     type="submit"
                     onClick={props.handleFormSubmit}
                     className="btn search-btn"
+                    size="lg"
                 >
                     Search
                 </Button>

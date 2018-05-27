@@ -1,10 +1,16 @@
 .footer {
-    background-color: dodgerblue !important;
+    background-color: #080708 !important;
     margin-top: 80px;
     padding-top: 30px;
     padding-bottom: 30px;
+    border-top: 8px solid #FDCA40;
+    color: white !important;
 }
 
 .footer-heading {
     font-size: 24px;
+}
+
+.footer-button {
+    color: #080708 !important;
 }

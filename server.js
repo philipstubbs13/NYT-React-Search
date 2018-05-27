@@ -17,13 +17,6 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-
-
-// Routing
-// router.get("/*", function (req, res) {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
 app.use(routes);
 
 // Send every request to the React app

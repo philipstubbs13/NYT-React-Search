@@ -1,7 +1,11 @@
+/*https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6*/
 .jumbotron  {
-    background-color: dodgerblue !important;
+    background-color: #080708 !important;
+    color: white !important;
+    border-bottom: 8px solid #FDCA40;
 }
 
 .button {
-    color: dodgerblue !important;
+    background-color: #FDCA40 !important;
+    color: black;
 }
