@@ -14,6 +14,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 * [Getting started](#getting-started)
 * [Deployment](#react-deployment)
 * [Technologies used to create app](#technologies-used)
+* [Direction for future development](#future)
 * [Issues](#Issues)
 
 ## <a name="live"></a>Live
@@ -75,9 +76,9 @@ To set up this application locally on your computer, perform the following steps
 
 8. [Install Robo 3T](#install-robo)
 
-9. [Seed MongoDB](#seed)
+9. [Seed the database](#seed)
 
-10. [Start the server](#start-server)
+10. [Start the Express server and React development server](#start-server)
 
 
 ### <a name="clone-repository"></a> 1. Clone the repository
@@ -199,7 +200,7 @@ yarn start
 
 <p>After the development server has started, a Chrome browser window should open, and you should see the application. If the browser does not automatically open after the server starts, you can verify that the application is working locally on your computer by manually opening Chrome and going to <a href="http://localhost:3000">http://localhost:3000</a>.</p>
 
-<p>If you are still unable to see the application in the browser at http://localhost:3000, ensure that no other applications are using port 3000. If port 3000 is in use by another process, kill that process and then restart the servers.</p>
+<p><b>Tip</b>: If you are still unable to see the application in the browser at <a href="http://localhost:3000">http://localhost:3000</a>, ensure that no other applications/processes are using port 3000. If port 3000 is in use by another process, kill that process and then restart the servers.</p>
 
 ## <a name="react-deployment"></a> Deployment
 
@@ -215,6 +216,19 @@ yarn start
 * Express (<http://expressjs.com/>)
 * Mongoose ORM (<http://mongoosejs.com/>)
 * New York Times article search API (<https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json>)
+
+## <a name="future"></a> Direction for future development
+Source code will be developed over time to handle bug fixes and new features.
+
+The following is a list of potential enhancements for future code development.
+
+* Add feature to save articles to a MongoDB database.
+
+* Add second page to the app that allows users to see saved articles.
+
+* Add feature that allows users to leave comments on saved articles.
+
+* Add feature that allows users to delete saved articles.
 
 ## <a name ="Issues"></a> Issues
 
