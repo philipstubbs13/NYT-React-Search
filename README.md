@@ -1,6 +1,6 @@
 # New York Times React Search
 
-A React application that uses the New York Times article search API to retrieve news articles by topic and year. 
+A React application that uses the New York Times article search API to retrieve news articles by topic and year.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -39,7 +39,6 @@ When you navigate to the app home page, you will see an article search form with
 
 In a future version of the app, you will be able to save and comment on articles that you like. Stay tuned...
 
-
 ### <a name="how-the-app-is-built"></a> How the app is built
 
 This project was built using React, which is an open-source Javascript library developed at Facebook specifically for the task of developing user interfaces. React relies on a component-based architecture where elements of the user interface are broken into self-contained components.
@@ -66,9 +65,20 @@ To set up this application locally on your computer, perform the following steps
 
 3. [Install yarn](#install-yarn)
 
-3. [Install the dependencies](#dependencies)
+4. [Install the dependencies](#dependencies)
 
-4. [Start the server](#start-server)
+5. [Install MongoDB](#install-mongo)
+
+6. [Start the daemon for MongoDB](#mongod)
+
+7. [Start the MongoDB shell](#mongoshell)
+
+8. [Install Robo 3T](#install-robo)
+
+9. [Seed MongoDB](#seed)
+
+10. [Start the server](#start-server)
+
 
 ### <a name="clone-repository"></a> 1. Clone the repository
 
@@ -88,13 +98,14 @@ The first step is to clone the project repository to a local directory on your c
     * <b>index.js</b>: The index.js file is the top level file of the React app. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
     * <b>App.js</b>: The App.js file is where the React components are imported and rendered and where the routes are set up.
     * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumobotron component.
-    * <b>containers</b>: Contains the pages of the app. 
+    * <b>containers</b>: Contains the pages of the app.
     * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times article search API. This folder also contains all the axios requests used to get, save, and delete articles from the MongoDB database.
     * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
   * <b>package.json</b>: Lists the project dependencies and their version numbers.
   * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
 * <b>controllers</b>: The controllers are the routes that are used to pass information to and from the view and model objects.
 * <b>models</b>: A model defines the database schema or structure of the database.
+* <b>readme_images</b>: Contains the screenshots used within the project README file.
 * <b>routes</b>: These files are the key to how the back end and front end can communicate with each other. They give the server a map of how to respond when users visit or request data from various URLs.
 * <b>scripts</b>
   * <b>build.js</b>: Run <b>yarn build</b> in the project root directory to create a production build of the app, which you can use to deploy the app to Heroku.
@@ -118,6 +129,7 @@ The first step is to clone the project repository to a local directory on your c
 <p>If you don't already have Node.js installed on your computer, you can install the latest version here: <https://nodejs.org/en/>.</p>
 
 ### <a name="install-yarn"></a> 3. Install yarn
+
 To be able to install the dependencies and start the application locally, you will need to install yarn. Yarn is a package manager like npm.
 
 To install yarn, run the following command:
@@ -125,27 +137,71 @@ To install yarn, run the following command:
   npm install -g yarn
 </pre>
 
-For more information about yarn and other installation options, see the yarn documentation: https://yarnpkg.com/en/.
+For more information about yarn and other installation options, see the yarn documentation: <https://yarnpkg.com/en/>.
 
 ### <a name="dependencies"></a> 4. Install the dependencies
 
-<p>This project uses React.</p>
-<p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required React dependencies (react, react-dom, and react-scripts).</p>
+<p>The following packages are dependencies to the project.<p>
+
+<ul>
+	<li><b>express</b> -  a Node.js web application framework (<https://www.npmjs.com/package/express>).</li>
+	<li><b>body-parser</b> - a package used to parse incoming request bodies in a middleware. (<https://www.npmjs.com/package/body-parser>)</li>
+  <li><b>axios</b> - a promise based HTTP client for the browser and node.js (<https://www.npmjs.com/package/axios>)</li>
+  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database (<https://www.npmjs.com/package/mongoose>).</li>
+  <li><b>react</b> - package for accessing React (<https://www.npmjs.com/package/react>)</li>
+  <li><b>react-dom</b> - serves as the entry point of the DOM-related rendering paths (<https://www.npmjs.com/package/react-dom>).</li>
+  <li><b>react-router-dom</b> - a third party routing library (<https://www.npmjs.com/package/react-router-dom>)</li>
+  <li><b>react-scripts</b>: package that includes scripts and configuration used by Create React App. (<https://www.npmjs.com/package/react-scripts>)</li>
+  <li><b>reactstrap</b> - library of Bootstrap UI components for React (<https://reactstrap.github.io>)</li>
+</ul>
+
+<p>Version information for each of these packages is available in the <b>package.json</b> file in the project root directory and in the <b>client</b> directory.</p>
+
+<p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required packages:</p>
 <pre>yarn install</pre>
 
-<p>Version information for each of these packages is available in the <b>package.json</b> file in the project root directory.</p>
+<p>Change directory to the <b>NYT-React-Search/client</b> directory and run the following command to install the client dependencies.</p>
 
-### <a name="start-server">5. Start the React development server</a>
+<pre>yarn install</pre>
 
-<p>After performing all of the setup steps in the <b>Getting started</b> section, navigate to the project root directory (NYT-Reatt-Searh) and run the following command to start the React development server:</p>
+###  <a name="install-mongo"></a> 5. Install MongoDB
+
+<p>For installation instructions, see <a href="https://github.com/philipstubbs13/coding-tips-tricks-resources/blob/master/MongoDB/Installing-MongoDB.md">Installing MongoDB</a>.</p>
+
+###  <a name="mongod"></a> 6. Start the daemon for MongoDB
+
+<p>Open another terminal window and run the following command to start the daemon process for MongoDB, which handles data requests, manages data access, and performs background management operations.</p>
+<pre>mongod</pre>
+
+<p><b>Note:</b> You want to keep the mongod process running in the background during development.</p>
+
+###  <a name="mongoshell"></a> 7. Start the MongoDB shell
+<p>In a separate terminal window, run the following command to start up the MongoDB shell.</p>
+<pre>mongo</pre>
+
+###  <a name="install-robo"></a> 8. Install Robo 3T
+
+<p>If you don't already have Robo 3T installed on your computer, you can install the latest version <a href="https://robomongo.org/download">here</a>.</p>
+
+<p>For this project, Robo 3T is similar to MySQL Workbench (if you are used to working with MySQL databases). Robo 3T is not required. But, similar to MySQL Workbench, it is a graphical user interface that is used to visually see the database and database collections (as opposed to using the command line interface for MongoDB).</p>
+
+### <a name="seed"></a> 9. Seed the database.
+<p>Run the following command from the project root directory (NYT-React-Search) to populate your local development database with dummy data.</p>
+<pre>yarn seed</pre>
+
+
+### <a name="start-server"> 10. Start the Express server and React development server.</a>
+
+<p>After performing all of the setup steps in the <b>Getting started</b> section, navigate to the project root directory (NYT-React-Search) and run the following command to start the Express server and React development server:</p>
 <pre>
 yarn start
 </pre>
 
 <p>After the development server has started, a Chrome browser window should open, and you should see the application. If the browser does not automatically open after the server starts, you can verify that the application is working locally on your computer by manually opening Chrome and going to <a href="http://localhost:3000">http://localhost:3000</a>.</p>
 
-## <a name="react-deployment"></a> Deployment
+<p>If you are still unable to see the application in the browser at http://localhost:3000, ensure that no other applications are using port 3000. If port 3000 is in use by another process, kill that process and then restart the servers.</p>
 
+## <a name="react-deployment"></a> Deployment
 
 ## <a name="technologies-used"></a> Technologies used to build app
 
@@ -154,6 +210,11 @@ yarn start
 * reactstrap (<https://reactstrap.github.io/>)
 * Javascript
 * React (<https://reactjs.org/>)
+* Node.js (<https://nodejs.org/en/>)
+* MongoDB (<https://www.mongodb.com/>)
+* Express (<http://expressjs.com/>)
+* Mongoose ORM (<http://mongoosejs.com/>)
+* New York Times article search API (<https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json>)
 
 ## <a name ="Issues"></a> Issues
 
