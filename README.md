@@ -93,7 +93,9 @@ The first step is to clone the project repository to a local directory on your c
 <p>After you clone the repository, navigate to the project root directory (NYT-React-Search). The project directory structure is set up as follows:</p>
 
 * <b>client</b>
-  * <b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this app uses a React component-based architecture to create, build, and render UI components to the page.
+  * <b>build</b>: This folder contains a build of the app optimized for production use. This folder will only appear within the project root directory if you kicked off a production build by running <b>yarn build</b>. If you haven't created a production build yet, then this folder will not be visible within the project root directory.
+  * <b>node_modules</b>: This folder contains the project dependencies. It is ignored by git when committed to GitHub and Heroku. You install the project dependencies by running <b>yarn install</b> from the project root directory and from the <b>client</b> directory.
+  * <b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this app uses a React component-based architecture to create, build, and render UI components to the page. This folder also contains the favicon that is displayed on the browser tab.
   * <b>src</b>: The src folder is where the React app components reside.
     * <b>index.js</b>: The index.js file is the top level file of the React app. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
     * <b>App.js</b>: The App.js file is where the React components are imported and rendered and where the routes are set up.
