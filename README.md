@@ -26,8 +26,6 @@ You can find the most recent version of this guide [here](https://github.com/fac
 <br>
 <br>
 <img src="readme_images/search_results.png">
-<br>
-<br>
 
 ## <a name="about-this-project"></a> About this project
 
@@ -77,22 +75,37 @@ The first step is to clone the project repository to a local directory on your c
 #### <a name="structure-of-project"></a> Structure of the project
 
 <p>After you clone the repository, navigate to the project root directory (NYT-React-Search). The project directory structure is set up as follows:</p>
-<ul>
-  </li>
-    <p><b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.</p>
-  </li>
-  <li>
-    <p><b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.</p>
-    <ul>
-      <li><b>index.js:</b> The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.</li>
-      <li><b>App.js:</b> The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and player images. This file also defines a class that allows various states of the application to be updated throughout the game, including the score, top score, a player's clicked value, and the game message displayed in the top navigation bar.</li>
-      <li><b>Components:</b> The Components folder is where the app components are located. Each file represents a separate component. For example, Navbar.js is the top navigation bar component.</li>
-      <li><b>players.json:</b> The players.json file contains an array of objects. Each object is a player that gets rendered to the page. Each object contains four properties, id, name, image, and clicked. By default, clicked is set to false. When the user clicks a player, that player's clicked value gets set to true so that the application can keep track of which players have already been clicked (clicked is true) and which players have not been clicked (clicked is false).</li>
-  </li>
-  <li><b>package.json</b>: Lists the project dependencies and their version numbers.</li>
-  <li><b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub when code is committed.</li>
-  <li><b>yarn.lock</b>: Dependency tree for the project. Lists all the dependencies and their versions.</li>
-</ul>
+
+* <b>client</b>
+  * <b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this app uses a React component-based architecture to create, build, and render UI components to the page.
+  * <b>src</b>: The src folder is where the React app components reside.
+    * <b>index.js</b>: The index.js file is the top level file of the React app. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
+    * <b>App.js</b>: The App.js file is where the React components are imported and rendered and where the routes are set up.
+    * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumobotron component.
+    * <b>containers</b>: Contains the pages of the app. 
+    * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times article search API. This folder also contains all the axios requests used to get, save, and delete articles from the MongoDB database.
+    * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
+  * <b>package.json</b>: Lists the project dependencies and their version numbers.
+  * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
+* <b>controllers</b>: The controllers are the routes that are used to pass information to and from the view and model objects.
+* <b>models</b>: A model defines the database schema or structure of the database.
+* <b>routes</b>: These files are the key to how the back end and front end can communicate with each other. They give the server a map of how to respond when users visit or request data from various URLs.
+* <b>scripts</b>
+  * <b>build.js</b>: Run <b>yarn build</b> in the project root directory to create a production build of the app, which you can use to deploy the app to Heroku.
+  * <b>seedDB.js</b>: Run <b>yarn seed</b> to populate your development database with information.
+  * <b>start-client</b>: Script used to start the React development server.
+* <b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub or Heroku when code is committed.
+* <b>package.json</b>: Lists the project dependencies and their version numbers. It also contains various scripts to start the server, create a production build, seed the database, etc.
+* <b>Procfile</b>: This file tells Heroku to run the server file with node once it's built.
+* <b>server.js</b>: This file does the following:
+  * Defines and requires the dependencies, including express, body-parser, and mongoose.
+  * Sets up the Express server to handle data parsing using body-parser.
+  * Points the server to the API routes, which gives the server a map of how to respond when users visit or request data from various URLs.
+  * Defines the port the server is listening on.
+  * Starts the API server and React server.
+  * Allows the app to serve static content.
+  * Uses Mongoose (orm) to connect to MongoDB, which allows us to have access to the MongoDB commands to perform various operations on the database.
+* <b>yarn.lock</b>: Dependency tree for the project. Lists the project dependencies and their versions.
 
 ### <a name="install-node"></a> 2. Install Node.js
 
