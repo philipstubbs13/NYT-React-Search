@@ -32,7 +32,6 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 * [How the app works](#how-app-works)
 * [How the app is built](#how-the-app-is-built)
-* [What is web scraping?](#about-web-scraping)
 
 ### <a name="how-app-works"></a> How the app works
 
@@ -98,9 +97,9 @@ The first step is to clone the project repository to a local directory on your c
   * <b>src</b>: The src folder is where the React app components reside.
     * <b>index.js</b>: The index.js file is the top level file of the React app. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
     * <b>App.js</b>: The App.js file is where the React components are imported and rendered and where the routes are set up.
-    * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumobotron component, which displays at the top of the app.
+    * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumbotron component, which displays at the top of the app.
     * <b>containers</b>: Contains the pages of the app.
-    * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times Article Search API. This folder also contains all the axios requests used to get, save, and delete articles from the MongoDB database.
+    * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times Article Search API. This folder also contains the axios requests used to get, save, and delete articles from the MongoDB database.
     * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
   * <b>package.json</b>: Lists the project dependencies and their version numbers.
   * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
@@ -120,7 +119,7 @@ The first step is to clone the project repository to a local directory on your c
   * Sets up the Express server to handle data parsing using body-parser.
   * Points the server to the API routes, which gives the server a map of how to respond when users visit or request data from various URLs.
   * Defines the port the server is listening on.
-  * Starts the API server and React server.
+  * Starts the Express server and React development server.
   * Allows the app to serve static content.
   * Uses Mongoose (orm) to connect to MongoDB, which allows us to have access to the MongoDB commands to perform various operations on the database.
 * <b>yarn.lock</b>: Dependency tree for the project. Lists the project dependencies and their versions.
@@ -203,6 +202,31 @@ yarn start
 <p><b>Tip</b>: If you are still unable to see the application in the browser at <a href="http://localhost:3000">http://localhost:3000</a>, ensure that no other applications/processes are using port 3000. If port 3000 is in use by another process, kill that process and then restart the servers.</p>
 
 ## <a name="react-deployment"></a> Deployment
+
+This app is deployed to Heroku. To deploy the app, you will need to build a production version of the app as well as have Heroku CLI installed.
+
+1. Download and install the Heroku CLI. You can install the Heroku CLI <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</p>
+
+2. If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+<pre>heroku login</pre>
+
+3. Change directory to the project root directory (<b>NYT-React-Search</b>).
+
+4. If you have deployed the app before, delete the <b>NYT-React-Search/client/build</b> folder.
+
+5. Run the following command to build a clean production version of the app.
+<pre>yarn build</pre>
+<p>This command creates a folder called <b>build</b> inside of the <b>client</b> folder. </p>
+
+6. Deploy your changes
+<pre>
+git add .
+git commit -am "heroku commit message"
+git push heroku master
+</pre>
+
+<p>If you run into any issues with deploying the app to Heroku, run the following command in the project root directory to see the Heroku logs.</p>
+<pre>heroku logs</pre>
 
 ## <a name="technologies-used"></a> Technologies used to build app
 
