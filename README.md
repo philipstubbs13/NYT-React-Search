@@ -1,6 +1,6 @@
 # New York Times React Search
 
-A React application that uses the New York Times article search API to retrieve news articles by topic and year.
+A React application that uses the New York Times Article Search API to retrieve news articles by topic and year.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -36,9 +36,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ### <a name="how-app-works"></a> How the app works
 
-When you navigate to the app home page, you will see an article search form with three input fields. Enter the topic you want to search for in the <b>Topic</b> field (for example, Grayson Allen), a start year (for example, 2017) in the <b>Start year</b> field, and an end year (for example, 2018) in the <b>End year</b> field. After you provide that information, click <b>Search</b>. When you click <b>Search</b>, a list of articles about your topic from the years specified will be retrieved using the New York Times article search API. If you want to read the entire article, click <b>Continue reading</b> to be taken to the full length article on the New York Times website.
+When you navigate to the app home page, you will see an article search form with three input fields. Enter the topic you want to search for in the <b>Topic</b> field (for example, Grayson Allen), a start year (for example, 2017) in the <b>Start year</b> field, and an end year (for example, 2018) in the <b>End year</b> field. After you provide that information, click <b>Search</b>. When you click <b>Search</b>, a list of articles about your topic from the years specified will be retrieved using the New York Times Article Search API. If you want to read the entire article, click <b>Continue reading</b>, which is an external link that takes you to the full length article on the New York Times website.
 
-In a future version of the app, you will be able to save and comment on articles that you like. Stay tuned...
+In a future version of the app, you will be able to save articles that you like, leave comments on saved articles, and delete articles. Stay tuned...
 
 ### <a name="how-the-app-is-built"></a> How the app is built
 
@@ -50,7 +50,7 @@ The React documentation is available at <https://reactjs.org/>.
 
 For more information on how this project is structured and broken into various components, see [Structure of the project](#structure-of-project).
 
-The app also uses the New York Times article search API to retrieve news articles from the New York Times. For more information about this API, see the [Article Search API documentation](https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json).
+The app also uses the New York Times Article Search API to retrieve news articles from the New York Times. For more information about this API, see the [Article Search API documentation](https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json).
 
 ## <a name="getting-started"></a> Getting started
 
@@ -98,9 +98,9 @@ The first step is to clone the project repository to a local directory on your c
   * <b>src</b>: The src folder is where the React app components reside.
     * <b>index.js</b>: The index.js file is the top level file of the React app. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
     * <b>App.js</b>: The App.js file is where the React components are imported and rendered and where the routes are set up.
-    * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumobotron component.
+    * <b>components</b>: The components folder is where the app components that are reused across the app are located. Each folder represents a separate component. For example, Jumbotron is the Bootstrap Jumobotron component, which displays at the top of the app.
     * <b>containers</b>: Contains the pages of the app.
-    * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times article search API. This folder also contains all the axios requests used to get, save, and delete articles from the MongoDB database.
+    * <b>utils</b>: Contains axios request to grab New York Times articles from the New York Times using the New York Times Article Search API. This folder also contains all the axios requests used to get, save, and delete articles from the MongoDB database.
     * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
   * <b>package.json</b>: Lists the project dependencies and their version numbers.
   * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
@@ -127,7 +127,7 @@ The first step is to clone the project repository to a local directory on your c
 
 ### <a name="install-node"></a> 2. Install Node.js
 
-<p>If you don't already have Node.js installed on your computer, you can install the latest version here: <https://nodejs.org/en/>.</p>
+<p>If you don't already have Node.js installed on your computer, you can install the latest version here: https://nodejs.org/en/.</p>
 
 ### <a name="install-yarn"></a> 3. Install yarn
 
@@ -145,15 +145,15 @@ For more information about yarn and other installation options, see the yarn doc
 <p>The following packages are dependencies to the project.<p>
 
 <ul>
-	<li><b>express</b> -  a Node.js web application framework (<https://www.npmjs.com/package/express>).</li>
-	<li><b>body-parser</b> - a package used to parse incoming request bodies in a middleware. (<https://www.npmjs.com/package/body-parser>)</li>
-  <li><b>axios</b> - a promise based HTTP client for the browser and node.js (<https://www.npmjs.com/package/axios>)</li>
-  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database (<https://www.npmjs.com/package/mongoose>).</li>
-  <li><b>react</b> - package for accessing React (<https://www.npmjs.com/package/react>)</li>
-  <li><b>react-dom</b> - serves as the entry point of the DOM-related rendering paths (<https://www.npmjs.com/package/react-dom>).</li>
-  <li><b>react-router-dom</b> - a third party routing library (<https://www.npmjs.com/package/react-router-dom>)</li>
-  <li><b>react-scripts</b>: package that includes scripts and configuration used by Create React App. (<https://www.npmjs.com/package/react-scripts>)</li>
-  <li><b>reactstrap</b> - library of Bootstrap UI components for React (<https://reactstrap.github.io>)</li>
+	<li><b>express</b> -  a Node.js web application framework (https://www.npmjs.com/package/express).</li>
+	<li><b>body-parser</b> - a package used to parse incoming request bodies in a middleware. (https://www.npmjs.com/package/body-parser)</li>
+  <li><b>axios</b> - a promise based HTTP client for the browser and node.js (https://www.npmjs.com/package/axios)</li>
+  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database (https://www.npmjs.com/package/mongoose).</li>
+  <li><b>react</b> - package for accessing React (https://www.npmjs.com/package/react)</li>
+  <li><b>react-dom</b> - serves as the entry point of the DOM-related rendering paths (https://www.npmjs.com/package/react-dom).</li>
+  <li><b>react-router-dom</b> - a third party routing library (https://www.npmjs.com/package/react-router-dom)</li>
+  <li><b>react-scripts</b>: package that includes scripts and configuration used by Create React App. (https://www.npmjs.com/package/react-scripts)</li>
+  <li><b>reactstrap</b> - library of Bootstrap UI components for React (https://reactstrap.github.io)</li>
 </ul>
 
 <p>Version information for each of these packages is available in the <b>package.json</b> file in the project root directory and in the <b>client</b> directory.</p>
@@ -215,7 +215,7 @@ yarn start
 * MongoDB (<https://www.mongodb.com/>)
 * Express (<http://expressjs.com/>)
 * Mongoose ORM (<http://mongoosejs.com/>)
-* New York Times article search API (<https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json>)
+* New York Times Article Search API (<https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json>)
 
 ## <a name="future"></a> Direction for future development
 Source code will be developed over time to handle bug fixes and new features.
