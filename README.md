@@ -1,6 +1,6 @@
 # New York Times React Search
 
-Test your memory of current NBA players with the ClickMe game. ClickMe is a memory skill application built using React. The objective of the game is to be able to go through and click each player's image once. Each time you click a player's image, your score goes up by one. If you click a player's image twice, you lose and the game resets (score goes back to 0).
+A React application that uses the New York Times article search API to retrieve news articles by topic and year. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -35,6 +35,10 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ### <a name="how-app-works"></a> How the app works
 
+When you navigate to the app home page, you will see an article search form with three input fields. Enter the topic you want to search for in the <b>Topic</b> field (for example, Grayson Allen), a start year (for example, 2017) in the <b>Start year</b> field, and an end year (for example, 2018) in the <b>End year</b> field. After you provide that information, click <b>Search</b>. When you click <b>Search</b>, a list of articles related to your topic within the years specified will be retrieved using the New York Times article search API. If you want to read the entire article, click <b>Continue reading</b> to be taken to the full length article on the New York Times website.
+
+In a future version of the app, you will be able to save and comment on articles that you like. Stay tuned...
+
 
 ### <a name="how-the-app-is-built"></a> How the app is built
 
@@ -45,6 +49,8 @@ For a high level overview of React, check out this video: <https://www.youtube.c
 The React documentation is available at <https://reactjs.org/>.
 
 For more information on how this project is structured and broken into various components, see [Structure of the project](#structure-of-project).
+
+The app also uses the New York Times article search API to retrieve news articles from the New York Times. For more information about this API, see the [Article Search API documentation](https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json).
 
 ## <a name="getting-started"></a> Getting started
 
